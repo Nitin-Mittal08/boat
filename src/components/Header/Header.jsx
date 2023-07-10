@@ -1,5 +1,5 @@
 import {HiOutlineShoppingBag} from 'react-icons/hi';
-import {AiOutlineHeart} from 'react-icons/ai';
+import {BsHeart} from 'react-icons/bs';
 
 import "./Header.css";
 
@@ -31,7 +31,7 @@ export function Header() {
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Profile-1.png?v=1663762989" alt="login" />
             </div>
             <div className="cart"><HiOutlineShoppingBag/></div>
-            <div className="wishlist"><AiOutlineHeart/></div> 
+            <div className="wishlist"><BsHeart/></div> 
           </div>
         </div>
       </div>
