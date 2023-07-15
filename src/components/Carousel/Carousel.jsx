@@ -20,7 +20,6 @@ export function Carousel({slides}){
     }
 
     useEffect(() => {
-        console.log("useEffect")
         if(timerRef.current){
             clearTimeout(timerRef.current)
         }

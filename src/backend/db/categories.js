@@ -8,20 +8,32 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "headphones",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "The 7.1 Channel Surround Sound will lead you on your way to euphoria. The wired headphones also come with Dolby Atmos to provide you a theatre-like experience. Let your listening become a reality that you can live and feel with Easy Audio & Mic Driver Customization that isolates the noise, rendering you focused on your music",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "neckband",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Neckbands provide a hassle-free and comfortable experience for users who prefer a hands-free and lightweight solution for their listening needs. They are also perfect for those who want to enjoy their music without disturbing others.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "smartWatch",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "In this fast-moving era, let the best smart watches keep at pace with you. That is right! boAt smartwatches are here for you, whether you want to exercise or rest. Our smartwatches are equipped with multiple active sports modes, like cycling, workout, running, walking, climbing, and others — making staying fit easy.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "speakers",
+    description:
+      "Tune into nirvana with the best Bluetooth speakers of all time. boAt speakers offer superior sound quality and performance, providing unparalleled clarity and precision with their signature sound. Whether you're listening to music in your home or at a party, these wireless Bluetooth speakers are the perfect way to enjoy your favourite tunes.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "wirelessEarbuds",
+    description:
+      "Truly in ear wireless with no cables, no connectors, and no hassles. Designed for comfort and unstoppable music, always remain on your toes as Airdopes brings to you the dopest tech there is out there!",
   },
 ];

@@ -1,5 +1,6 @@
 import "./App.css";
 import { HomePage } from "./Pages/HomePage/HomePage";
+import "@fontsource/metropolis";
 
 function App() {
   return (
