@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import { Header } from "../../components/Header/Header";
 import "./HomePage.css";
 import Image1 from "../../Assests/Images/CarouselImage1.webp";
@@ -37,23 +39,28 @@ const slides = [
 const categoryVideos = [
   {
     src: Video1,
-    name: "Headphones",
+    name: "headphones",
+    displayName:"Headphones"
   },
   {
     src: Video2,
-    name: "Neckband",
+    name: "neckband",
+    displayName:"Neckband"
   },
   {
     src: Video3,
-    name: "Smart Watch",
+    name: "smartWatch",
+    displayName:"Smart Watch"
   },
   {
     src: Video4,
-    name: "Speakers",
+    name: "speakers",
+    displayName:"Speakers"
   },
   {
     src: Video5,
-    name: "Wireless Earbuds",
+    name: "wirelessEarbuds",
+    displayName:"Wireless Earbuds"
   },
 ];
 
@@ -101,6 +108,7 @@ export function HomePage() {
           </div>
           <div className="categoryBlock">
             {categoryVideos.map((video) => (
+              <Link to={`/categories/${video.name}`}>
               <div className="videoCardContainer">
                 <div className="videoCard">
                   <video
@@ -112,9 +120,10 @@ export function HomePage() {
                   />
                 </div>
                 <div className="categoryName">
-                  <p>{video.name}</p>
+                  <p>{video.displayName}</p>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
         </div>

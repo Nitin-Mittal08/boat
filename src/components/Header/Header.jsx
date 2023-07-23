@@ -2,6 +2,7 @@ import {HiOutlineShoppingBag} from 'react-icons/hi';
 import {BsHeart} from 'react-icons/bs';
 
 import "./Header.css";
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -15,12 +16,14 @@ export function Header() {
             </p>
           </div>
         </div>
-        <div className="nav-bar">
+        <nav className="nav-bar">
           <div className="nav-left">
+          <Link to="/">
             <img
               src="https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small.svg?v=1682421543"
               alt="logo"
             />
+            </Link>
           </div>
           <div class="nav-right">
             <div className="search">
@@ -28,12 +31,14 @@ export function Header() {
               <input type="text" placeholder="Search" />
             </div>
             <div className="login">
+              <Link to="/login">
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Profile-1.png?v=1663762989" alt="login" />
+              </Link>
             </div>
             <div className="cart"><HiOutlineShoppingBag/></div>
             <div className="wishlist"><BsHeart/></div> 
           </div>
-        </div>
+        </nav>
       </div>
     </>
   );
