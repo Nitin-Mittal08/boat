@@ -31,8 +31,8 @@ export function AuthProvider({children}){
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
           setToken(encodedToken);
           setUser(foundUser);
-        //   navigate(location?.state.from.pathname);
-          navigate("/");
+        navigate(location?.state.from.pathname);
+          //navigate("/");
         }else{
           alert(response.statusText);
         }
