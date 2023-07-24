@@ -1,4 +1,3 @@
-import Image1 from "../../Assests/Images/WE1.webp"
 import {BsHeart} from 'react-icons/bs';
 
 import "./ProductCard.css";
@@ -16,8 +15,8 @@ export function ProductCard({product}){
                 <div className="productDetails">
                     <div className="name">{product.title}</div>
                     <div className="price">
-                        <div className="new-price">{product.price}</div>
-                        <div className="old-price">{product.oldPrice}</div>
+                        <div className="new-price">₹{product.price}</div>
+                        <div className="old-price">₹{product.oldPrice}</div>
                         <div className="discount">{parseInt((product.oldPrice - product.price)*100/product.oldPrice)}% off</div>
                     </div>
                 </div>

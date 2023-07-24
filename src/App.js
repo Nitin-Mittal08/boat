@@ -6,6 +6,8 @@ import "@fontsource/metropolis";
 import { CategoryPage } from "./Pages/CategoryPage/CategoryPage";
 import { LoginPage } from "./Pages/LoginPage/LoginPage";
 import { SignUpPage } from "./Pages/SignUpPage/SignUpPage";
+import { IndividualProductPage } from "./Pages/IndividualProductPage/IndividualProductPage";
+import { RequiresAuth } from "./components/RequiresAuth";
 
 function App() {
   return (
@@ -13,10 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/categories/:categoryName" element={<CategoryPage/>}/>
+        <Route path="/product/:productId" element={<RequiresAuth><IndividualProductPage/></RequiresAuth>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
       </Routes>
-      
     </div>
   );
 }
