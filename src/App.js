@@ -9,6 +9,7 @@ import { SignUpPage } from "./Pages/SignUpPage/SignUpPage";
 import { IndividualProductPage } from "./Pages/IndividualProductPage/IndividualProductPage";
 import { RequiresAuth } from "./components/RequiresAuth";
 import { ProductListingPage } from "./Pages/ProductListingPage/ProductListingPage";
+import { CheckOutPage } from "./Pages/CheckoutPage/CheckOutPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/products" element ={<ProductListingPage/>}/>
+        <Route path="/checkout" element={<RequiresAuth><CheckOutPage/></RequiresAuth>}/>
       </Routes>
     </div>
   );

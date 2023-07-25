@@ -5,6 +5,7 @@ import { useCart } from "../../contexts/CartProvider";
 
 import "./Cart.css";
 import { CartItem } from "./CartItem/CartItem";
+import { Link } from "react-router-dom";
 export function Cart(){
     const { setShowCart} = useCart();
     return(
@@ -32,7 +33,7 @@ export function Cart(){
                         <div className="subtotalPrice"><span className="text total">&#8377;1234</span><span className="taxWarning">Inclusive of all taxes</span></div>
                     </div>
                     <div className="button">
-                        <button className="checkout-cta">Checkout</button>
+                        <button className="checkout-cta" onClick={() => setShowCart(false)}><Link to="/checkout">Checkout</Link></button>
                     </div>
                 </div>
                 </>

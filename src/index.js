@@ -10,6 +10,8 @@ import { ProductProvider } from "./contexts/ProductProvider";
 import { AuthProvider } from "./contexts/AuthProvider";
 import { CartProvider } from "./contexts/CartProvider";
 import { SearchProvider } from "./contexts/SearchProvider";
+import { FilterProvider } from "./contexts/FilterProvider";
+import { SortProvider } from "./contexts/SortProvider";
 
 // Call make Server
 makeServer();
@@ -22,7 +24,11 @@ ReactDOM.render(
           <SearchProvider>
             <CartProvider>
               <ProductProvider>
-                <App />
+                <FilterProvider>
+                  <SortProvider>
+                    <App />
+                  </SortProvider>
+                </FilterProvider>
               </ProductProvider>
             </CartProvider>
           </SearchProvider>
