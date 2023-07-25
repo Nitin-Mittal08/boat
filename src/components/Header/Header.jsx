@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import "./Header.css";
 import {Cart} from "../Cart/Cart";
 import { useCart } from '../../contexts/CartProvider';
-import { useState } from 'react';
 import { useSearch } from '../../contexts/SearchProvider';
 
 
