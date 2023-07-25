@@ -556,6 +556,7 @@ export const products = [
     oldPrice: 6990,
     features: ["14W Signature Sound", "IPX7 Water Resistance"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP1,
     rating:4.6
   },
@@ -566,6 +567,7 @@ export const products = [
     oldPrice: 4990,
     features: ["Travel & Party Booster", "IPX7 Water Resistance"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP2,
     rating:4.3
   },
@@ -576,6 +578,7 @@ export const products = [
     oldPrice: 6990,
     features: ["RGB LEDs", "Bluetooth v5.0","76mm Drivers"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP3,
     rating:4.2
   },
@@ -586,6 +589,7 @@ export const products = [
     oldPrice: 2990,
     features: ["RGB LEDs", "TWS Technology","10W Powerful Sound"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP4,
     rating:4.4
   },
@@ -596,6 +600,7 @@ export const products = [
     oldPrice: 2990,
     features: ["52mm Dynamic Driver", "IPX7 Water Resistance"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP5,
     rating:4.3
   },
@@ -606,6 +611,7 @@ export const products = [
     oldPrice: 2490,
     features: ["Lightweight Design", "IPX7 Water Resistance"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP6,
     rating:4.7
   },
@@ -616,6 +622,7 @@ export const products = [
     oldPrice: 4990,
     features: ["52mm Drivers", "Type C interface","2000 mAh battery"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP7,
     rating:4.6
   },
@@ -626,6 +633,7 @@ export const products = [
     oldPrice: 7990,
     features: ["Bluetooth v5.1", "RGB LEDs","4.5H Playback"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP8,
     rating:4.7
   },
@@ -636,6 +644,7 @@ export const products = [
     oldPrice: 6990,
     features: ["Up to 09HRS Playback", "RGB LED Lights"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP9,
     rating:4.3
   },
@@ -646,6 +655,7 @@ export const products = [
     oldPrice: 7990,
     features: ["RGB LED Lights", "IPX5 Water Resistance"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP10,
     rating:4.4
   },
@@ -656,6 +666,7 @@ export const products = [
     oldPrice: 6990,
     features: ["14W Signature Sound", "Huge 3000 mAh Battery"],
     categoryName: "speakers",
+    desc:"14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
     img:SP11,
     rating:4.5
   },

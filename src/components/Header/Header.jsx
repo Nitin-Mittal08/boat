@@ -1,15 +1,24 @@
 import {HiOutlineShoppingBag} from 'react-icons/hi';
 import {BsHeart} from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import "./Header.css";
 import {Cart} from "../Cart/Cart";
 import { useCart } from '../../contexts/CartProvider';
+import { useState } from 'react';
+import { useSearch } from '../../contexts/SearchProvider';
 
 
 
 export function Header() {
+  const navigate = useNavigate();
   const {showCart, setShowCart} = useCart();
+  const {setSearchInput} = useSearch();
+
+  const searchHandler = (event) => {
+    setSearchInput(event.target.value);
+    navigate("/products");
+  }
   return (
     <>
       <div className="header-main">
@@ -33,7 +42,7 @@ export function Header() {
           <div className="nav-right">
             <div className="search">
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/search_558f3ad8-0ef9-4a9b-8576-a396b44aacd8.png?v=1680091847" alt="search-icon"/>
-              <input type="text" placeholder="Search" />
+              <input type="text" placeholder="Search" onChange={searchHandler}/>
             </div>
             <div className="login">
               <Link to="/login">
