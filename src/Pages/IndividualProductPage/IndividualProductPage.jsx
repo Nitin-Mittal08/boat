@@ -5,15 +5,18 @@ import {BsHeart} from 'react-icons/bs';
 import "./IndividualProductPage.css";
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
+import { useCart } from "../../contexts/CartProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 export function IndividualProductPage() {
   const { productData } = useProduct();
   const { productId } = useParams();
+  const {handleAddToCart} = useCart();
+
 
   const product = productData.filter(
     (product) => product._id === Number(productId)
   );
-  console.log(product);
 
   return (
     <>
@@ -43,11 +46,12 @@ export function IndividualProductPage() {
             % off
           </div>
           <div className="button-container individual">
-            <button>Add to Cart</button>
+            <button onClick={() => {handleAddToCart(product[0],1); toast.success("Item Added to Cart!")}}>Add to Cart</button>
           </div>
         </div>
       </div>
       <Footer />
+      <ToastContainer autoClose={2000}/>
     </>
   );
 }

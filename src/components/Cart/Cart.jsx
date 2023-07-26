@@ -5,9 +5,10 @@ import { useCart } from "../../contexts/CartProvider";
 
 import "./Cart.css";
 import { CartItem } from "./CartItem/CartItem";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export function Cart(){
-    const { setShowCart} = useCart();
+    const { setShowCart, cartItems, cartSubtotal} = useCart();
+    const navigate = useNavigate();
     return(
         <>
          <div className="cart-panel">
@@ -20,22 +21,22 @@ export function Cart(){
                         <span className="text">Close</span>
                     </span>
                 </div>
-                {/* <div className="empty-cart">
+                {cartItems.length === 0 && <div className="empty-cart">
                     <BsCartX/>
                     <span>Your cart is feeling lonely</span>
-                    <button>RETURN TO SHOP</button>
-                </div> */}
+                    <button onClick={() => {navigate("/products"); setShowCart(false) }}>RETURN TO SHOP</button>
+                </div>}
                 <>
-                <CartItem/>
-                <div className="cart-footer">
+                {cartItems.map(item => <CartItem product={item}/>)}
+                {cartItems.length>0 && <div className="cart-footer">
                     <div className="subtotal">
                         <span className="text">Subtotal:</span>
-                        <div className="subtotalPrice"><span className="text total">&#8377;1234</span><span className="taxWarning">Inclusive of all taxes</span></div>
+                        <div className="subtotalPrice"><span className="text total">&#8377;{cartSubtotal}</span><span className="taxWarning">Inclusive of all taxes</span></div>
                     </div>
                     <div className="button">
                         <button className="checkout-cta" onClick={() => setShowCart(false)}><Link to="/checkout">Checkout</Link></button>
                     </div>
-                </div>
+                </div>}
                 </>
             </div>
 

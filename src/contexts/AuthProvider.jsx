@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react"
 import { useLocation, useNavigate } from "react-router";
+import { useCart } from "./CartProvider";
+import { useFilters } from "./FilterProvider";
 
 export const AuthContext = createContext();
 
@@ -8,9 +10,20 @@ export function AuthProvider({children}){
   const localUser =  JSON.parse(localStorage.getItem("user"));
   const [token, setToken] = useState(localToken?.token);
   const [user,setUser] = useState(localUser?.user);
+  const {setCartItems} = useCart();
+  const {setSelectedCategory,setSortByPrice,setPriceRange} = useFilters();
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+    setCartItems([]);
+    setSelectedCategory([]);
+    setSortByPrice("");
+    setPriceRange(10000);
+  }
 
   const loginUser = async (userEmail, userPassword) => {
     if (userEmail !== "" && userPassword !== "") {
@@ -44,7 +57,7 @@ export function AuthProvider({children}){
     }
   };
     return(
-      <AuthContext.Provider value={{token, user, loginUser}}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{token, user, loginUser, handleLogout}}>{children}</AuthContext.Provider>
     )
 }
 

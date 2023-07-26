@@ -11,7 +11,7 @@ import { useSearch } from '../../contexts/SearchProvider';
 
 export function Header() {
   const navigate = useNavigate();
-  const {showCart, setShowCart} = useCart();
+  const {showCart, setShowCart, cartCount} = useCart();
   const {setSearchInput} = useSearch();
 
   const searchHandler = (event) => {
@@ -48,7 +48,7 @@ export function Header() {
               <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Profile-1.png?v=1663762989" alt="login" />
               </Link>
             </div>
-            <div className="cart" onClick={() => setShowCart(!showCart)}><HiOutlineShoppingBag/><span></span></div>
+            <div className="cart" onClick={() => setShowCart(!showCart)}><HiOutlineShoppingBag/>{!!cartCount&&<span>{cartCount}</span>}</div>
             <div className="wishlist"><BsHeart/><span></span></div> 
           </div>
         </nav>

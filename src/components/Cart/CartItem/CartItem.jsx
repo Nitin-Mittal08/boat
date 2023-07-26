@@ -1,28 +1,29 @@
 import { MdClose } from "react-icons/md";
-import prod from "../../../Assests/Images/WE1.webp";
 
 import "./CartItem.css";
+import { useCart } from "../../../contexts/CartProvider";
 
-export function CartItem() {
+export function CartItem({product}) {
+  const {handleRemoveFromCart, handleCartProductQuantity} = useCart();
   return (
     <>
       <div className="cart-products">
         <div className="cart-product">
           <div className="img-container">
-            <img src={prod} alt="" />
+            <img src={product.img} alt={product.title} />
           </div>
           <div className="prod-details">
             <div className="prod-top">
-              <span className="name">Product name</span>
-              <MdClose className="close-btn" />
+              <span className="name">{product.title}</span>
+              <MdClose className="close-btn" onClick={() => handleRemoveFromCart(product)} />
             </div>
             <div className="quantity-btns">
-              <span>+</span>
-              <span>5</span>
-              <span>-</span>
+              <span onClick={() => handleCartProductQuantity('inc',product)}>+</span>
+              <span>{product.quantity}</span>
+              <span onClick={() => handleCartProductQuantity('dec',product)}>-</span>
             </div>
             <div className="text">
-              <span>&#8377;3244</span>
+              <span>&#8377;{product.price * product.quantity}</span>
             </div>
           </div>
         </div>

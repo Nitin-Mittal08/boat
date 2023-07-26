@@ -11,7 +11,6 @@ import { AuthProvider } from "./contexts/AuthProvider";
 import { CartProvider } from "./contexts/CartProvider";
 import { SearchProvider } from "./contexts/SearchProvider";
 import { FilterProvider } from "./contexts/FilterProvider";
-import { SortProvider } from "./contexts/SortProvider";
 
 // Call make Server
 makeServer();
@@ -20,19 +19,17 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ChakraProvider>
-        <AuthProvider>
+        <CartProvider>
           <SearchProvider>
-            <CartProvider>
-              <ProductProvider>
-                <FilterProvider>
-                  <SortProvider>
-                    <App />
-                  </SortProvider>
-                </FilterProvider>
-              </ProductProvider>
-            </CartProvider>
+            <ProductProvider>
+              <FilterProvider>
+                <AuthProvider>
+                  <App />
+                </AuthProvider>
+              </FilterProvider>
+            </ProductProvider>
           </SearchProvider>
-        </AuthProvider>
+        </CartProvider>
       </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>,

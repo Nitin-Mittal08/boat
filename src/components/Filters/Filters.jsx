@@ -2,7 +2,9 @@ import { categories } from "../../backend/db/categories";
 import { useFilters } from "../../contexts/FilterProvider";
 
 export function Filters() {
-const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,clearFilters} = useFilters();
+const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,clearFilters,sortByPrice, handleSortByPrice} = useFilters();
+
+
   return (
     <>
       <div className="filterMain">
@@ -46,6 +48,11 @@ const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,cl
               </div>
             ))}
 
+        </div>
+        <div className="sortByPrice">
+            <h4>Sort By Price</h4>
+            <label><input type="radio" name="LtH" id="LtH" value="LtH" onChange={handleSortByPrice} checked={sortByPrice==="LtH"}/>Low to High</label>
+            <label><input type="radio" name="HtL" id="HtL" value="HtL" onChange={handleSortByPrice} checked={sortByPrice==="HtL"} />High to Low</label>
         </div>
       </div>
     </>

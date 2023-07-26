@@ -72,6 +72,24 @@
     cursor: pointer;
 }
 
+.cart{
+    position: relative;
+}
+
+.cart > span{
+    min-width: 20px;
+    text-align: center;
+    background-color:#ED1C24;
+    padding: 2.5px;
+    position: absolute;
+    top: -5px;
+    right: -12px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 10px;
+    color: white;
+}
+
 .wishlist svg{
     width: 20px;
     height: 20px;

@@ -6,18 +6,13 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthProvider";
 
 export function LoginPage() {
-  const { loginUser } = useAuth();
+  const { loginUser, handleLogout } = useAuth();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
+  const {user} = localStorage.getItem("user")!==null ? JSON.parse(localStorage.getItem("user")):{user:null};
+  const [address, setAddress] = useState([{id:1, name:"", house:"",street:"", city:"", pincode:"", mobile:""}]);
 
-  // const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     let email = event.target.elements.email.value;
-  //     let password = event.target.elements.password.value;
-  //     console.log(event.target.elements.guest.value);
-  //     console.log(event.target.elements.login.value);
-  //     // event.target.elements.login.value==="login"?setUserDetails({email, password}):setUserDetails({email: "adarshbalika@gmail.com",
-  //     // password: "adarshbalika"});
-  // }
+  
+
 
   const inputChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -45,7 +40,7 @@ export function LoginPage() {
     <>
       <div className="loginMain">
         <Header />
-        <div className="logInContainer">
+        {!user ? <div className="logInContainer">
           <form>
             <label htmlFor="email">Email Addess</label>
             <input
@@ -86,7 +81,7 @@ export function LoginPage() {
               </span>
             </p>
           </form>
-        </div>
+        </div> : <div><button onClick={handleLogout}>Logout</button></div>}
       </div>
     </>
   );

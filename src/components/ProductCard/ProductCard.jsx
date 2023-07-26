@@ -1,8 +1,12 @@
 import {BsHeart} from 'react-icons/bs';
 
 import "./ProductCard.css";
+import { useCart } from '../../contexts/CartProvider';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 export function ProductCard({product}){
+    const {handleAddToCart} = useCart();
     return(
         <>
          <div className="productMain">
@@ -25,10 +29,11 @@ export function ProductCard({product}){
                     {product.features.map(feature => <div className="featureCell">{feature}</div>)}
                 </div>
                 <div className="button-container">
-                <button>Add to Cart</button>
+                <button onClick={() => {handleAddToCart(product, 1); toast.success("Item Added to Cart!")}} >Add To Cart</button>
                 </div>
             </div>
          </div>
+        <ToastContainer autoClose={2000}/>
         </>
     )
 }

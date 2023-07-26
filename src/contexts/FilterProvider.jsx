@@ -5,10 +5,15 @@ export const FilterContext = createContext();
 export function FilterProvider({children}){
     const [priceRange, setPriceRange] = useState(10000);
     const [selectedCategory, setSelectedCategory] = useState([]);
+    const [sortByPrice, setSortByPrice] = useState("");
   
     const priceRangeHandler = (event) => {
       setPriceRange(event.target.value);
     };
+
+    const handleSortByPrice = (e) => {
+        setSortByPrice(e.target.value)
+    }
   
     const categoryChangeHandler = (event) => {
        let value = event.target.value;
@@ -21,7 +26,7 @@ export function FilterProvider({children}){
          setPriceRange(10000)
     }
     return(
-        <FilterContext.Provider value={{priceRange, setPriceRange, priceRangeHandler, categoryChangeHandler, selectedCategory, setSelectedCategory,clearFilters}}>{children}</FilterContext.Provider>
+        <FilterContext.Provider value={{priceRange, setPriceRange, priceRangeHandler, categoryChangeHandler, selectedCategory, setSelectedCategory,clearFilters, handleSortByPrice, sortByPrice,setSortByPrice}}>{children}</FilterContext.Provider>
     )
 }
 
