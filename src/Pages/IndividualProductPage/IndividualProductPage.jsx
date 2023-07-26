@@ -19,15 +19,15 @@ export function IndividualProductPage() {
   const {handleAddToWishList,wishListItems} = useWishList();
   const[wishListBtn, setWishListBtn] = useState(false);
 
-  const wishlistIds = wishListItems.map(item => item._id);
+  const wishlistIds = wishListItems.map(item => item?._id);
 
  useEffect(() => {
-  wishlistIds.includes(product[0]._id) ? setWishListBtn(true):setWishListBtn(false);
+  wishlistIds.includes(product[0]?._id) ? setWishListBtn(true):setWishListBtn(false);
  },[wishListItems]); 
 
 
   const product = productData.filter(
-    (product) => product._id === Number(productId)
+    (product) => product?._id === Number(productId)
   );
 
   return (
