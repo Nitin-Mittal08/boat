@@ -1,16 +1,26 @@
 import { categories } from "../../backend/db/categories";
 import { useFilters } from "../../contexts/FilterProvider";
 
+import {MdClose} from "react-icons/md";
+
+import "./Filters.css";
+
 export function Filters() {
-const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,clearFilters,sortByPrice, handleSortByPrice} = useFilters();
+const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,clearFilters,sortByPrice, handleSortByPrice, ratingHandler,sortByRating,setShowFilter} = useFilters();
 
 
   return (
     <>
       <div className="filterMain">
+      <div className="opac-layer"></div>
+      <div className="filterContent">
         <div className="filterHeader">
           <h3>Filters</h3>
           <button onClick={clearFilters}>Clear</button>
+          <span className="close-btn" onClick={() => setShowFilter(false)}>
+                        <MdClose/>
+                        <span className="text">Close</span>
+                    </span>
         </div>
         <div className="priceFilter">
           <h4>Price</h4>
@@ -53,6 +63,12 @@ const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,cl
             <h4>Sort By Price</h4>
             <label><input type="radio" name="LtH" id="LtH" value="LtH" onChange={handleSortByPrice} checked={sortByPrice==="LtH"}/>Low to High</label>
             <label><input type="radio" name="HtL" id="HtL" value="HtL" onChange={handleSortByPrice} checked={sortByPrice==="HtL"} />High to Low</label>
+        </div>
+        <div className="sortByRating">
+            <h4>Sort By Rating</h4>
+            <label><input type="radio" name="LtH" id="LtH" value="LtH" onChange={ratingHandler} checked={sortByRating==="LtH"}/>Low to High</label>
+            <label><input type="radio" name="HtL" id="HtL" value="HtL" onChange={ratingHandler} checked={sortByRating==="HtL"} />High to Low</label>
+        </div>
         </div>
       </div>
     </>

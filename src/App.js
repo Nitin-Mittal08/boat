@@ -10,6 +10,7 @@ import { IndividualProductPage } from "./Pages/IndividualProductPage/IndividualP
 import { RequiresAuth } from "./components/RequiresAuth";
 import { ProductListingPage } from "./Pages/ProductListingPage/ProductListingPage";
 import { CheckOutPage } from "./Pages/CheckoutPage/CheckOutPage";
+import { WishListPage } from "./Pages/WishListPage/WishListPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/products" element ={<ProductListingPage/>}/>
+        <Route path="/wishlist" element ={<WishListPage/>}/>
         <Route path="/checkout" element={<RequiresAuth><CheckOutPage/></RequiresAuth>}/>
       </Routes>
     </div>

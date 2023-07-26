@@ -1,12 +1,23 @@
 import {BsHeart} from 'react-icons/bs';
+import {AiFillHeart} from 'react-icons/ai';
 
 import "./ProductCard.css";
 import { useCart } from '../../contexts/CartProvider';
-import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { useWishList } from "../../contexts/WishListProvider";
+import { useEffect, useState } from 'react';
 
 export function ProductCard({product}){
     const {handleAddToCart} = useCart();
+    const {handleAddToWishList,wishListItems} = useWishList();
+    const[wishListBtn, setWishListBtn] = useState(false);
+
+    const wishlistIds = wishListItems.map(item => item._id);
+
+   useEffect(() => {
+    wishlistIds.includes(product._id) ? setWishListBtn(true):setWishListBtn(false);
+   },[wishListItems]); 
+    
     return(
         <>
          <div className="productMain">
@@ -14,7 +25,7 @@ export function ProductCard({product}){
             <div className="productDetailsMain">
                 <div className="desc-top">
                     <div className="rating">⭐️{product.rating}</div>
-                    <div className="wishlist"><button><BsHeart/></button></div>
+                    <div className="wishlist"><button onClick={() => {handleAddToWishList(product)}}>{wishListBtn?<AiFillHeart/>:<BsHeart/>}</button></div>
                 </div>
                 <div className="productDetails">
                     <div className="name">{product.title}</div>

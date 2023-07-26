@@ -81,7 +81,10 @@ export function LoginPage() {
               </span>
             </p>
           </form>
-        </div> : <div><button onClick={handleLogout}>Logout</button></div>}
+        </div> : <div className="logoutContainer">
+          <div className="details"></div>
+          <div className="address"></div>
+          <button onClick={handleLogout}>Logout</button></div>}
       </div>
     </>
   );

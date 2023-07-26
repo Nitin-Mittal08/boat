@@ -1,17 +1,29 @@
 import { useProduct } from "../../contexts/ProductProvider";
 import { useParams } from "react-router-dom";
 import {BsHeart} from 'react-icons/bs';
+import {AiFillHeart} from 'react-icons/ai';
 
 import "./IndividualProductPage.css";
 import { Header } from "../../components/Header/Header";
 import { Footer } from "../../components/Footer/Footer";
 import { useCart } from "../../contexts/CartProvider";
 import { ToastContainer, toast } from "react-toastify";
+import { useWishList } from "../../contexts/WishListProvider";
+import { useEffect, useState } from "react";
 
 export function IndividualProductPage() {
   const { productData } = useProduct();
   const { productId } = useParams();
   const {handleAddToCart} = useCart();
+
+  const {handleAddToWishList,wishListItems} = useWishList();
+  const[wishListBtn, setWishListBtn] = useState(false);
+
+  const wishlistIds = wishListItems.map(item => item._id);
+
+ useEffect(() => {
+  wishlistIds.includes(product[0]._id) ? setWishListBtn(true):setWishListBtn(false);
+ },[wishListItems]); 
 
 
   const product = productData.filter(
@@ -28,7 +40,7 @@ export function IndividualProductPage() {
         <div className="productDetailContainer">
           <div className="descTop">
             <div className="rating">⭐️{product[0]?.rating}</div>
-            <div className="wishlist"><button><BsHeart/></button></div>
+            <div className="wishlist"><button onClick={() => {handleAddToWishList(product[0]); toast.success("Item added to Wishlist!")}}>{wishListBtn?<AiFillHeart/>:<BsHeart/>}</button></div>
           </div>
           <div className="title">
             <h2>{product[0]?.title}</h2>

@@ -2,6 +2,8 @@ import { createContext, useContext, useState } from "react"
 import { useLocation, useNavigate } from "react-router";
 import { useCart } from "./CartProvider";
 import { useFilters } from "./FilterProvider";
+import { useWishList } from "./WishListProvider";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -12,6 +14,7 @@ export function AuthProvider({children}){
   const [user,setUser] = useState(localUser?.user);
   const {setCartItems} = useCart();
   const {setSelectedCategory,setSortByPrice,setPriceRange} = useFilters();
+  const {setWishListItems} = useWishList();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +26,7 @@ export function AuthProvider({children}){
     setSelectedCategory([]);
     setSortByPrice("");
     setPriceRange(10000);
+    setWishListItems([]);
   }
 
   const loginUser = async (userEmail, userPassword) => {
@@ -47,12 +51,11 @@ export function AuthProvider({children}){
         navigate(location?.state.from.pathname);
           //navigate("/");
         }else{
-          alert(response.statusText);
+          toast.error(response.statusText);
         }
-        console.log(foundUser);
 
       } catch (err) {
-        console.error(err);
+        toast.error(err);
       }
     }
   };

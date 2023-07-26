@@ -49,7 +49,7 @@ export function Header() {
               </Link>
             </div>
             <div className="cart" onClick={() => setShowCart(!showCart)}><HiOutlineShoppingBag/>{!!cartCount&&<span>{cartCount}</span>}</div>
-            <div className="wishlist"><BsHeart/><span></span></div> 
+            <div className="wishlist"><Link to="/wishlist"><BsHeart/></Link></div> 
           </div>
         </nav>
       </div>
