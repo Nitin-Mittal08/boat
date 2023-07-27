@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 import { Header } from "../../components/Header/Header";
 import { useCart } from "../../contexts/CartProvider";
-
 import "./CheckOutPage.css";
-import { Navigate, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+
 
 export function CheckOutPage(){
     const [address, setAddress] = useState([{id:1, name:"Nitin", house:"269",street:"Green Avenue", city:"Bathinda", pincode:"151001", mobile:"12345678790"}]);

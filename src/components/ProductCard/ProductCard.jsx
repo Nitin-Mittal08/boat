@@ -6,6 +6,7 @@ import { useCart } from '../../contexts/CartProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import { useWishList } from "../../contexts/WishListProvider";
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function ProductCard({product}){
     const {handleAddToCart} = useCart();
@@ -21,14 +22,14 @@ export function ProductCard({product}){
     return(
         <>
          <div className="productMain">
-            <img src={product.img} alt={product.title}/>
+           <Link to ={`/product/${product._id}`}><img src={product.img} alt={product.title}/></Link> 
             <div className="productDetailsMain">
                 <div className="desc-top">
                     <div className="rating">⭐️{product.rating}</div>
                     <div className="wishlist"><button onClick={() => {handleAddToWishList(product)}}>{wishListBtn?<AiFillHeart/>:<BsHeart/>}</button></div>
                 </div>
                 <div className="productDetails">
-                    <div className="name">{product.title}</div>
+                   <Link to ={`/product/${product._id}`}> <div className="name">{product.title}</div></Link>
                     <div className="price">
                         <div className="new-price">₹{product.price}</div>
                         <div className="old-price">₹{product.oldPrice}</div>
@@ -40,7 +41,7 @@ export function ProductCard({product}){
                     {product.features.map(feature => <div className="featureCell">{feature}</div>)}
                 </div>
                 <div className="button-container">
-                <button onClick={() => {handleAddToCart(product, 1); toast.success("Item Added to Cart!")}} >Add To Cart</button>
+                <button onClick={() => {handleAddToCart(product, 1)}} >Add To Cart</button>
                 </div>
             </div>
          </div>

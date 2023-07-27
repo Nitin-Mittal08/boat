@@ -29,7 +29,7 @@ export function ProductListingPage(){
                 <button onClick={() => setShowFilter(true)}>Filter By</button>
             </div>
             <div className="productListingContainer">
-            {sortByRatingData.map(product => <Link to={`/product/${product._id}` }key={product._id}><ProductCard product={product}/></Link>)}
+            {sortByRatingData.map(product => <Link key={product._id}><ProductCard product={product}/></Link>)}
             </div>
          </div>
          <ToastContainer autoClose={2000}/>

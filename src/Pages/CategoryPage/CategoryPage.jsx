@@ -37,7 +37,7 @@ export function CategoryPage() {
                 <button onClick={() => setShowFilter(true)}>Filter By</button>
             </div>
             <div className="productListing">
-                {sortByRatingData.map(product =><Link to={`/product/${product._id}`}> <ProductCard product={product} key={product._id}/></Link>)}
+                {sortByRatingData.map(product => <Link><ProductCard product={product} key={product._id}/></Link>)}
             </div>
         </div>
       </div>

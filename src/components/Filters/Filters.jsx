@@ -28,15 +28,15 @@ const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,cl
           <div className="filter-slider-range">
             <div className="filter-range">
               <p>500</p>
+              <p>2000</p>
               <p>4500</p>
-              <p>10000</p>
             </div>
             <input
               type="range"
               name="rangeInput"
               className="slider"
               min="500"
-              max="10000"
+              max="4500"
               value={priceRange}
               onChange={priceRangeHandler}
             />

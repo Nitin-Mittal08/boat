@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
+import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
@@ -21,6 +22,7 @@ export function CartProvider({children}){
         }else{
             product.quantity=quantity;
             items = [...items,product];
+            toast.success("Item added to Cart!");
         }
 
         setCartItems(items);
@@ -30,6 +32,7 @@ export function CartProvider({children}){
         items = items.filter(item => item._id!==product._id);
 
         setCartItems(items);
+        toast.warning("Item removed from Cart!")
     }
     const handleCartProductQuantity = (type, product) => {
         let items = [...cartItems];

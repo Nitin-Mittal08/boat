@@ -6,6 +6,7 @@ import "./Header.css";
 import {Cart} from "../Cart/Cart";
 import { useCart } from '../../contexts/CartProvider';
 import { useSearch } from '../../contexts/SearchProvider';
+import { useWishList } from '../../contexts/WishListProvider';
 
 
 
@@ -13,6 +14,7 @@ export function Header() {
   const navigate = useNavigate();
   const {showCart, setShowCart, cartCount} = useCart();
   const {setSearchInput} = useSearch();
+  const {wishlistCount}  = useWishList();
 
   const searchHandler = (event) => {
     setSearchInput(event.target.value);
@@ -49,7 +51,7 @@ export function Header() {
               </Link>
             </div>
             <div className="cart" onClick={() => setShowCart(!showCart)}><HiOutlineShoppingBag/>{!!cartCount&&<span>{cartCount}</span>}</div>
-            <div className="wishlist"><Link to="/wishlist"><BsHeart/></Link></div> 
+            <div className="wishlist"><Link to="/wishlist"><BsHeart/></Link>{!!wishlistCount&&<span>{wishlistCount}</span>}</div> 
           </div>
         </nav>
       </div>

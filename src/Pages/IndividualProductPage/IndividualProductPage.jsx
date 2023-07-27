@@ -14,15 +14,17 @@ import { useEffect, useState } from "react";
 export function IndividualProductPage() {
   const { productData } = useProduct();
   const { productId } = useParams();
-  const {handleAddToCart} = useCart();
+  const {handleAddToCart, cartItems, setShowCart} = useCart();
 
   const {handleAddToWishList,wishListItems} = useWishList();
   const[wishListBtn, setWishListBtn] = useState(false);
-
+  const [cartBtn, setCartBtn] = useState(false);
   const wishlistIds = wishListItems.map(item => item?._id);
+  const cartIds = cartItems.map(item => item?._id);
 
  useEffect(() => {
   wishlistIds.includes(product[0]?._id) ? setWishListBtn(true):setWishListBtn(false);
+
  },[wishListItems]); 
 
 
@@ -58,7 +60,7 @@ export function IndividualProductPage() {
             % off
           </div>
           <div className="button-container individual">
-            <button onClick={() => {handleAddToCart(product[0],1); toast.success("Item Added to Cart!")}}>Add to Cart</button>
+            <button onClick={()=>handleAddToCart(product[0],1)}>{"Add to Cart"}</button>
           </div>
         </div>
       </div>
