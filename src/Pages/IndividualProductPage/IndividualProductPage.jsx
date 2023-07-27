@@ -14,13 +14,11 @@ import { useEffect, useState } from "react";
 export function IndividualProductPage() {
   const { productData } = useProduct();
   const { productId } = useParams();
-  const {handleAddToCart, cartItems, setShowCart} = useCart();
+  const {handleAddToCart} = useCart();
 
   const {handleAddToWishList,wishListItems} = useWishList();
   const[wishListBtn, setWishListBtn] = useState(false);
-  const [cartBtn, setCartBtn] = useState(false);
   const wishlistIds = wishListItems.map(item => item?._id);
-  const cartIds = cartItems.map(item => item?._id);
 
  useEffect(() => {
   wishlistIds.includes(product[0]?._id) ? setWishListBtn(true):setWishListBtn(false);
