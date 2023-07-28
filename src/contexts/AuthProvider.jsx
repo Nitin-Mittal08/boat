@@ -21,7 +21,7 @@ export function AuthProvider({children}){
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/");
+    navigate("/login");
     setCartItems([]);
     setSelectedCategory([]);
     setSortByPrice("");
@@ -60,7 +60,7 @@ export function AuthProvider({children}){
     }
   };
     return(
-      <AuthContext.Provider value={{token, user, loginUser, handleLogout}}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{token, user, loginUser, handleLogout, setUser}}>{children}</AuthContext.Provider>
     )
 }
 

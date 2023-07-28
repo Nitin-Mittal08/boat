@@ -95,7 +95,7 @@ export function HomePage() {
           <Header />
         </div>
         <div className="carouselContainer">
-          <Carousel slides={slides} />
+          <Link to="/products"><Carousel slides={slides} /></Link>
         </div>
         <div className="categoryContainer">
           <div className="categoryHeading">

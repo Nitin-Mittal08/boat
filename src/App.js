@@ -11,6 +11,7 @@ import { RequiresAuth } from "./components/RequiresAuth";
 import { ProductListingPage } from "./Pages/ProductListingPage/ProductListingPage";
 import { CheckOutPage } from "./Pages/CheckoutPage/CheckOutPage";
 import { WishListPage } from "./Pages/WishListPage/WishListPage";
+import { UserProfile } from "./components/UserProfile/UserProfile";
 
 function App() {
   return (

@@ -6,15 +6,15 @@ import { useSearch } from "../../contexts/SearchProvider";
 
 import "./ProductListingPage.css";
 import { ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFilters } from "../../contexts/FilterProvider";
 import { Filters } from "../../components/Filters/Filters";
 
 export function ProductListingPage(){
     const {productData} = useProduct();
     const {searchInput} = useSearch();
-    const {selectedCategory,priceRange, sortByPrice,sortByRating,showFilter, setShowFilter} = useFilters();
-
+    const {selectedCategory, setSelectedCategory,priceRange, sortByPrice,sortByRating,showFilter, setShowFilter} = useFilters();
+    useEffect(() => {setSelectedCategory([])},[]);
     const displayProducts = searchInput.length>0?productData.filter(product => product.title.toLowerCase().includes(searchInput.toLowerCase())|| product.categoryName.toLowerCase().includes(searchInput.toLowerCase())||product.desc.toLowerCase().includes(searchInput.toLowerCase())):productData;
     const displayCategoryData = selectedCategory.length > 0 ?productData.filter(product => selectedCategory.includes(product.categoryName)):displayProducts;
     const priceData = displayCategoryData.filter(product => product.price < priceRange);

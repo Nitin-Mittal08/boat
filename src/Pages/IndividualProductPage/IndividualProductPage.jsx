@@ -40,7 +40,7 @@ export function IndividualProductPage() {
         <div className="productDetailContainer">
           <div className="descTop">
             <div className="rating">⭐️{product[0]?.rating}</div>
-            <div className="wishlist"><button onClick={() => {handleAddToWishList(product[0]); toast.success("Item added to Wishlist!")}}>{wishListBtn?<AiFillHeart/>:<BsHeart/>}</button></div>
+            <div className="wishlist"><button onClick={() => handleAddToWishList(product[0])}>{wishListBtn?<AiFillHeart/>:<BsHeart/>}</button></div>
           </div>
           <div className="title">
             <h2>{product[0]?.title}</h2>
