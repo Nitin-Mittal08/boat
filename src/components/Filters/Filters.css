@@ -18,6 +18,13 @@
     height: 100%;
 }
 
+.filters{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+}
+
 .filterContent{
     width: 340px;
     background-color: white;
@@ -55,4 +62,14 @@
 .filter-range{
     display: flex;
     gap: 10px;
+}
+
+.sortByPrice{
+    display: flex;
+    flex-direction: column;
+}
+
+.sortByRating{
+    display: flex;
+    flex-direction: column;
 }

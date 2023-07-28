@@ -19,6 +19,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 export function CheckOutPage() {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -38,6 +39,7 @@ export function CheckOutPage() {
     handleMobile,
     addAddress,
   } = useAddress();
+  const [addressSelected, setAddressSelected] = useState(false);
   const { cartItems, cartCount, cartSubtotal, setCartItems } = useCart();
   const navigate = useNavigate();
   return (
@@ -53,7 +55,7 @@ export function CheckOutPage() {
             <div className="addresses">
               {address.map((item) => (
                 <div className="addressSelection">
-                  <input type="radio" name="address" id="address" style={{accentColor:"#ED1C24"}}/>
+                  <input type="radio" name="address" id="address" style={{accentColor:"#ED1C24"}} onChange={() => setAddressSelected(true)}/>
                   <div className="details">
                     <p>{item.name}</p>
                     <p>
@@ -84,7 +86,7 @@ export function CheckOutPage() {
             <hr/>
             <div className="cartQuantity"><div>Total Quantity:</div><div>{cartCount}</div></div>
             <div className="cartPrice"><div>Total Price:</div><div>₹{cartSubtotal}</div></div>
-            <button
+            {addressSelected && cartItems.length > 0 ? <button
               onClick={() => {
                 setTimeout(() => {
                   navigate("/");
@@ -92,9 +94,9 @@ export function CheckOutPage() {
                 toast.success("Order Placed");
                 setCartItems([]);
               }}
-            >
+            className="checkoutBtn">
               Place Order
-            </button>
+            </button>:<button className="checkoutBtn">{cartItems.length ===0 ?"Please add items" : "Please select the address"}</button>}
           </div>
         </div>
       </div>

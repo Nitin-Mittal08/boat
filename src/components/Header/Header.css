@@ -48,6 +48,10 @@
     align-items: center;
 }
 
+.search > input{
+    outline: none;
+}
+
 .search img{
     width: 14px;
     height: 14px;

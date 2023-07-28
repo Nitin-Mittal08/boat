@@ -22,6 +22,7 @@ const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,cl
                         <span className="text">Close</span>
                     </span>
         </div>
+        <div className="filters">
         <div className="priceFilter">
           <h4>Price</h4>
 
@@ -68,6 +69,7 @@ const {priceRange, selectedCategory, priceRangeHandler, categoryChangeHandler,cl
             <h4>Sort By Rating</h4>
             <label><input type="radio" name="LtH" id="LtH" value="LtH" onChange={ratingHandler} checked={sortByRating==="LtH"}/>Low to High</label>
             <label><input type="radio" name="HtL" id="HtL" value="HtL" onChange={ratingHandler} checked={sortByRating==="HtL"} />High to Low</label>
+        </div>
         </div>
         </div>
       </div>
